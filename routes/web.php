@@ -16,3 +16,5 @@ use App\Http\Controllers\FrontEndController;
 
 // BUAT ROUTE UNTUK MENGARAHKAN KE HALAMAN DEPAN WEBSITE
 Route::get('/', [FrontEndController::class, 'index']);
+
+// CRUD About
