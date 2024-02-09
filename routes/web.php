@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontEndController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\JobController;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +19,12 @@ use App\Http\Controllers\FrontEndController;
 
 // BUAT ROUTE UNTUK MENGARAHKAN KE HALAMAN DEPAN WEBSITE
 Route::get('/', [FrontEndController::class, 'index']);
+// BUAT ROUTE UNTUK MENGARAHKAN KE HALAMAN ADMIN
+Route::get('/admin', [DashboardController::class, 'index']);
+// BUAT ROUTE UNTUK MENGARAHKAN KE HALAMAN DASHBOARD/JOB/INDEX
+Route::get('/admin/job', [JobController::class, 'index']);
+// BUAT ROUTE UNTUK MENGARAHKAN KE HALAMAN CREATE JOB
+Route::get('/admin/job/create', [JobController::class, 'create']);
+// BUAT ROUTE UNTUK MEMASUKKAN DATA KE TABEL PEKERJAAN
+Route::post('/admin/job/store', [JobController::class, 'store']);
+
