@@ -18,100 +18,55 @@
 
 @section('content')
 <div class="table-responsive">
-  <table class="table text-nowrap mb-0 align-middle">
+  <table class="table text-nowrap mb-0 align-middle mb-3">
     <thead class="text-dark fs-4">
       <tr>
         <th class="border-bottom-0">
-          <h6 class="fw-semibold mb-0">Id</h6>
+          <h6 class="fw-semibold mb-0">#</h6>
         </th>
         <th class="border-bottom-0">
-          <h6 class="fw-semibold mb-0">Assigned</h6>
+          <h6 class="fw-semibold mb-0">Nama Pekerjaan</h6>
         </th>
         <th class="border-bottom-0">
-          <h6 class="fw-semibold mb-0">Name</h6>
+          <h6 class="fw-semibold mb-0">Lokasi</h6>
         </th>
         <th class="border-bottom-0">
-          <h6 class="fw-semibold mb-0">Priority</h6>
+          <h6 class="fw-semibold mb-0">Kategori</h6>
         </th>
         <th class="border-bottom-0">
-          <h6 class="fw-semibold mb-0">Budget</h6>
+          <h6 class="fw-semibold mb-0">Aksi</h6>
         </th>
       </tr>
     </thead>
     <tbody>
+      @forelse ($pekerjaan as $key=>$value)
+      {{-- @dd($value->kategori->nama_kategori) --}}
       <tr>
-        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">1</h6></td>
+        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">{{ $key+1 }}</h6></td>
         <td class="border-bottom-0">
-            <h6 class="fw-semibold mb-1">Sunil Joshi</h6>
-            <span class="fw-normal">Web Designer</span>                          
+            <h6 class="fw-semibold mb-1">{{ $value->nama_pekerjaan }}</h6>                          
         </td>
         <td class="border-bottom-0">
-          <p class="mb-0 fw-normal">Elite Admin</p>
+          <p class="mb-0 fw-normal">{{ $value->lokasi->nama_lokasi }}</p>
         </td>
         <td class="border-bottom-0">
-          <div class="d-flex align-items-center gap-2">
-            <span class="badge bg-primary rounded-3 fw-semibold">Low</span>
-          </div>
+          <p class="mb-0 fw-normal">{{ $value->kategori->nama_kategori }}</p>
         </td>
-        <td class="border-bottom-0">
-          <h6 class="fw-semibold mb-0 fs-4">$3.9</h6>
+        <td class="d-flex justify-content-center align-items-center">
+          <a href="/job/{{ $value->id }}" class="btn btn-info mx-2">Detail</a>
+          <a href="" class="btn btn-primary mx-2">Edit</a>
+          <form action="" method="POST">
+          @csrf
+          @method('DELETE')
+          <input type="submit" value="Delete" class="btn btn-danger mx-2" style="background: #FA896B !important;">
+        </form>
         </td>
       </tr> 
-      <tr>
-        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">2</h6></td>
-        <td class="border-bottom-0">
-            <h6 class="fw-semibold mb-1">Andrew McDownland</h6>
-            <span class="fw-normal">Project Manager</span>                          
-        </td>
-        <td class="border-bottom-0">
-          <p class="mb-0 fw-normal">Real Homes WP Theme</p>
-        </td>
-        <td class="border-bottom-0">
-          <div class="d-flex align-items-center gap-2">
-            <span class="badge bg-secondary rounded-3 fw-semibold">Medium</span>
-          </div>
-        </td>
-        <td class="border-bottom-0">
-          <h6 class="fw-semibold mb-0 fs-4">$24.5k</h6>
-        </td>
-      </tr> 
-      <tr>
-        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">3</h6></td>
-        <td class="border-bottom-0">
-            <h6 class="fw-semibold mb-1">Christopher Jamil</h6>
-            <span class="fw-normal">Project Manager</span>                          
-        </td>
-        <td class="border-bottom-0">
-          <p class="mb-0 fw-normal">MedicalPro WP Theme</p>
-        </td>
-        <td class="border-bottom-0">
-          <div class="d-flex align-items-center gap-2">
-            <span class="badge bg-danger rounded-3 fw-semibold">High</span>
-          </div>
-        </td>
-        <td class="border-bottom-0">
-          <h6 class="fw-semibold mb-0 fs-4">$12.8k</h6>
-        </td>
-      </tr>      
-      <tr>
-        <td class="border-bottom-0"><h6 class="fw-semibold mb-0">4</h6></td>
-        <td class="border-bottom-0">
-            <h6 class="fw-semibold mb-1">Nirav Joshi</h6>
-            <span class="fw-normal">Frontend Engineer</span>                          
-        </td>
-        <td class="border-bottom-0">
-          <p class="mb-0 fw-normal">Hosting Press HTML</p>
-        </td>
-        <td class="border-bottom-0">
-          <div class="d-flex align-items-center gap-2">
-            <span class="badge bg-success rounded-3 fw-semibold">Critical</span>
-          </div>
-        </td>
-        <td class="border-bottom-0">
-          <h6 class="fw-semibold mb-0 fs-4">$2.4k</h6>
-        </td>
-      </tr>                       
+      @empty
+          <h4>Data Informasi Lowongan Belum Tersedia...</h4>
+      @endforelse                     
     </tbody>
   </table>
+  {{ $pekerjaan->links() }}
 </div>
 @endsection

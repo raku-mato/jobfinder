@@ -7,6 +7,7 @@
   <title>{{ $judul }}</title>
   <link rel="shortcut icon" type="image/png" href="{{ asset('DASHBOARD/src/assets/images/logos/favicon.ico')}}" />
   <link rel="stylesheet" href="{{ asset('DASHBOARD/src/assets/css/styles.min.css')}}" />
+  @notifyCss
 </head>
 
 <body>
@@ -48,6 +49,7 @@
       </div>
     </div>
   </div>
+  @include('notify::components.notify')
   <script src="{{ asset('DASHBOARD/src/assets/libs/jquery/dist/jquery.min.js')}}"></script>
   <script src="{{ asset('DASHBOARD/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js')}}"></script>
   <script src="{{ asset('DASHBOARD/src/assets/js/sidebarmenu.js')}}"></script>
@@ -55,6 +57,8 @@
   <script src="{{ asset('DASHBOARD/src/assets/libs/apexcharts/dist/apexcharts.min.js')}}"></script>
   <script src="{{ asset('DASHBOARD/src/assets/libs/simplebar/dist/simplebar.js')}}"></script>
   <script src="{{ asset('DASHBOARD/src/assets/js/dashboard.js')}}"></script>
+  @stack('script')
+  @notifyJs
 </body>
 
 </html>

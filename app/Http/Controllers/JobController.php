@@ -16,7 +16,9 @@ class JobController extends Controller
         //arahkan ke folder Dashboard/Job/index
         $judul = "Dashboard Admin";
         $namaHalaman = "Job";
-        return view('Dashboard.Job.index', ['judul' => $judul, 'namaHalaman' => $namaHalaman]);
+        //ambil data pekerjaan dengan nama lokasi
+        $pekerjaan = Pekerjaan::with(['lokasi', 'kategori'])->latest()->paginate(5);
+        return view('Dashboard.Job.index', ['judul' => $judul, 'namaHalaman' => $namaHalaman, 'pekerjaan' => $pekerjaan]);
     }
 
     /**
@@ -26,7 +28,7 @@ class JobController extends Controller
     {
         //arahkan ke halaman Dashboard>Job>create
         $judul = "Dashboard Admin";
-        $namaHalaman = "Tambah Job";
+        $namaHalaman = "Tambah Lowongan Pekerjaan Baru";
         $lokasi = Lokasi::all();
         $kategori = Kategori::all();
         return view('Dashboard.Job.create', ['judul' => $judul, 'namaHalaman' => $namaHalaman, 'lokasi' => $lokasi, 'kategori' => $kategori]);
@@ -65,6 +67,9 @@ class JobController extends Controller
 
         $pekerjaan->save();
 
+        // Kasih notifikasi kalau proses tambah data berhasil
+        notify()->success('Data Lowongan Pekerjaan Berhasil ditambahkan ke dalam sistem...');
+
         return redirect('/admin/job');
     }
 
@@ -73,7 +78,15 @@ class JobController extends Controller
      */
     public function show(string $id)
     {
-        //
+        // dd($id);
+        $namaWebsite = "JobFinder";
+        $namaHalaman = "Tambah Lowongan Pekerjaan Baru";
+        //ambil data pekerjaan berdasarkan id
+        $pekerjaan = Pekerjaan::with(['lokasi', 'kategori'])->find($id);
+        // dd($pekerjaan);
+
+        //arahkan ke halaman dashboard/job/detail
+        return view('Dashboard.Job.detail', ['pekerjaan' => $pekerjaan, 'namaHalaman' => $namaHalaman, 'namaWebsite' => $namaWebsite]);
     }
 
     /**

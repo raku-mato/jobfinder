@@ -27,4 +27,10 @@ Route::get('/admin/job', [JobController::class, 'index']);
 Route::get('/admin/job/create', [JobController::class, 'create']);
 // BUAT ROUTE UNTUK MEMASUKKAN DATA KE TABEL PEKERJAAN
 Route::post('/admin/job/store', [JobController::class, 'store']);
+// BUAT ROUTE UNTUK NAMPILIN DETAIL JOB
+Route::get('/job/{id}', [JobController::class, 'show']);
+// BUAT ROUTE UNTUK JOB LISTING
+Route::get('/job/job_listing', function () {
+    return 'Hello World';
+});
 

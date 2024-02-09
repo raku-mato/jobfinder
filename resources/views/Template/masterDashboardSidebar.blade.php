@@ -53,16 +53,37 @@
             </a>
           </li>
         </ul>
-        <div class="unlimited-access hide-menu bg-light-primary position-relative mb-7 mt-5 rounded">
-          <div class="d-flex">
-            <div class="unlimited-access-title me-3">
-              <h6 class="fw-semibold fs-4 mb-6 text-dark w-85">Upgrade to pro</h6>
-              <a href="https://adminmart.com/product/modernize-bootstrap-5-admin-template/" target="_blank" class="btn btn-primary fs-2 fw-semibold lh-sm">Buy Pro</a>
-            </div>
-            <div class="unlimited-access-img">
-              <img src="{{ asset('DASHBOARD/src/assets/images/backgrounds/rocket.png')}}" alt="" class="img-fluid">
-            </div>
-          </div>
+
+        <hr>
+
+        <div class="navbar-collapse justify-content-start px-0" id="navbarNav">
+          <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-start">
+            
+            <li class="nav-item dropdown">
+              <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <img src="{{ asset('DASHBOARD/src/assets/images/profile/user-1.jpg')}}" alt="" width="35" height="35" class="rounded-circle">
+                <span class="text-secondar"></span>
+              </a>
+              <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
+                <div class="message-body">
+                  <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                    <i class="ti ti-user fs-6"></i>
+                    <p class="mb-0 fs-3">My Profile</p>
+                  </a>
+                  <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                    <i class="ti ti-mail fs-6"></i>
+                    <p class="mb-0 fs-3">My Account</p>
+                  </a>
+                  <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                    <i class="ti ti-list-check fs-6"></i>
+                    <p class="mb-0 fs-3">My Task</p>
+                  </a>
+                  <a href="{{ asset('DASHBOARD/src/authentication-login.html')}}" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                </div>
+              </div>
+            </li>
+          </ul>
         </div>
       </nav>
       <!-- End Sidebar navigation -->

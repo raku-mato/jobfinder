@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pekerjaan;
+use App\Models\Kategori;
+use App\Models\Lokasi;
 
 class FrontEndController extends Controller
 {
@@ -13,7 +16,18 @@ class FrontEndController extends Controller
     {
         //ARAHKAN KE FOLDER FRONTEND INDEX
         $namaWebsite = "JobFinder";
-        return view ('FrontEnd.index', ['namaWebsite' => $namaWebsite]);
+        $pekerjaan = Pekerjaan::with(['lokasi', 'kategori'])->latest()->paginate(5);
+        return view ('FrontEnd.index', ['namaWebsite' => $namaWebsite, 'pekerjaan' => $pekerjaan]);
+    }
+
+    public function all() {
+        return "HELLO";
+        $namaWebsite = "JobFinder";
+        $pekerjaan = Pekerjaan::with(['lokasi', 'kategori'])->latest()->paginate(5);
+        $kategori = Kategori::all();
+        $lokasi = Lokasi::all();
+
+        return view('FrontEnd.all',['namaWebsite' => $namaWebsite, 'pekerjaan' => $pekerjaan, 'kategori' => $kategori, 'lokasi' => $lokasi]);
     }
 
     /**
