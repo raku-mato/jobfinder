@@ -9,6 +9,6 @@
 <h2>Tema Project</h2>
 <p>Website Pencarian kerja</p>
 <h2>ERD</h2>
-
+ <img src="https://github.com/raku-mato/jobfinder/blob/main/ERD%20Job%20Finder%20rev.png"/>
 <h2>Keterangan</h2>
 <p>Project ini tidak beres hingga akhir secara pribadi</p>
