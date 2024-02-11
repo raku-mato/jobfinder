@@ -46,7 +46,11 @@
                         <div class="col-lg-3 col-md-2">
                             <!-- Logo -->
                             <div class="logo">
+<<<<<<< HEAD
                                 <a href="index.html"><img src="{{ asset('TEMPLATE/assets/img/logo/logo.png')}}" alt=""></a>
+=======
+                                <a href="/"><img src="{{ asset('TEMPLATE/assets/img/logo/logo.png')}}" alt=""></a>
+>>>>>>> 6bf769e665466f85002336815ace92a9b57ec43b
                             </div>  
                         </div>
                         @include('Template.menuBar')
@@ -58,6 +62,7 @@
     </header>
     <main>
 
+<<<<<<< HEAD
         <!-- slider Area Start-->
         <div class="slider-area ">
             <!-- Mobile Menu -->
@@ -528,6 +533,33 @@
                 </div>
             </div>
         </div>
+=======
+        @yield('content')
+
+        <!-- slider Area Start-->
+        @yield('hero')
+        <!-- slider Area End-->
+        <!-- Our Services Start -->
+        @yield('service')
+        <!-- Our Services End -->
+        <!-- Online CV Area Start -->
+         @yield('online')
+        <!-- Online CV Area End-->
+        <!-- Featured_job_start -->
+        @yield('job')
+        <!-- Featured_job_end -->
+        <!-- How  Apply Process Start-->
+        @yield('how')
+        <!-- How  Apply Process End-->
+        <!-- Testimonial Start -->
+        @yield('testi')
+        <!-- Testimonial End -->
+         <!-- Support Company Start-->
+         @yield('support')
+        <!-- Support Company End-->
+        <!-- Blog Area Start -->
+        @yield('blog')
+>>>>>>> 6bf769e665466f85002336815ace92a9b57ec43b
         <!-- Blog Area End -->
 
     </main>
@@ -669,7 +701,11 @@
         <script src="{{ asset('TEMPLATE/assets/js/vendor/modernizr-3.5.0.min.js')}}"></script>
 		<!-- Jquery, Popper, Bootstrap -->
 		<script src="{{ asset('TEMPLATE/assets/js/vendor/jquery-1.12.4.min.js')}}"></script>
+<<<<<<< HEAD
         <script src="{{ asset('public/assets/js/popper.min.js')}}"></script>
+=======
+        <script src="{{ asset('TEMPLATE/assets/js/popper.min.js')}}"></script>
+>>>>>>> 6bf769e665466f85002336815ace92a9b57ec43b
         <script src="{{ asset('TEMPLATE/assets/js/bootstrap.min.js')}}"></script>
 	    <!-- Jquery Mobile Menu -->
         <script src="{{ asset('TEMPLATE/assets/js/jquery.slicknav.min.js')}}"></script>
